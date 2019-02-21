@@ -1,7 +1,12 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["csv"]["name"]);
-
+// test
 // Check if image file is a actual image or fake image
 if(isset($_FILES)) {
     // Allow certain file formats
