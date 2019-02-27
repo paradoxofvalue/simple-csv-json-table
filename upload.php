@@ -1,31 +1,55 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+// header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header("HTTP/1.1 200 OK");
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["csv"]["name"]);
-// test
-// Check if image file is a actual image or fake image
-if(isset($_FILES)) {
+
+$path = $_FILES['file']['name']; 
+$ext = pathinfo($path, PATHINFO_EXTENSION);
+$target_file = "uploads/" . basename($_FILES["csv"]["name"]) . '-' . time() . '.' . $ext;
+
+$response = [];
+
+if(isset($_POST) && isset($_FILES)) {
     // Allow certain file formats
     $mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');
     
     if(in_array($_FILES['csv']['type'], $mimes)){
+
         if (move_uploaded_file($_FILES["csv"]["tmp_name"], $target_file)) {
+
             $data = getJsonFromCsv($target_file, "r+");
-            saveAsJson($data);
-            // echo "The file ". basename( $_FILES["csv"]["name"]). " has been uploaded.";
+
+            if (saveAsJson($data)) {
+                $response = ['status' => "Success", 'message' => "Файл успешно загружен!"];
+                echo json_encode($response);
+                exit();
+            } else {
+                $response = ['status' => "Error", 'message' => "Не удалось сохранить файл. Попробуйте еще раз немного позже."];
+                echo json_encode($response);
+                exit();
+            }
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            $response = ['status' => "Error", 'message' => "Во время загрузки файла, произошла ошибка. Попробуйте еще раз!"];
+            echo json_encode($response);
+            exit();
         }
     } else {
-        die("Попробуйте другой файл");
+        $response = ['status' => "Error", 'message' => "Попробуйте другой файл"];
+        echo json_encode($response);
+        exit();
     }
     
 } else {
-    die("Вернитесь на страницу назад");
+    $response = ['status' => "Error", 'message' => "Извините, вы что-то хотели?"];
+    echo json_encode($response);
+    exit();
 }
 
 function getJsonFromCsv($feed) {
@@ -58,7 +82,9 @@ function getJsonFromCsv($feed) {
         // echo json_encode($newArray);
         return json_encode($newArray);
     } else {
-        die("Файл загруженый вами неверного формата!");
+        $response = ['status' => "Error", 'message' => "Файл загруженый вами, неверного формата!"];
+        echo json_encode($response);
+        exit();
     }
 }
 
@@ -83,9 +109,13 @@ function csvToArray($file, $delimiter) {
 } 
 
 function saveAsJson($data) {
-    $fp = fopen('data.json', 'w');
-    fwrite($fp, json_encode($data));
-    fclose($fp);
-    echo "Файл загружен, успешно!";
+    try {
+        $fp = fopen('data.json', 'w');
+        fwrite($fp, json_encode($data));
+        fclose($fp);
+        return true;
+    } catch (\Throwable $th) {
+        return false;
+    }   
 }
 ?>

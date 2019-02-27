@@ -158,11 +158,16 @@
                         $(insertHtml).appendTo(tbody);
                     })
                 } else {
-                    console.log("error");
+                    alert(data.message);
                 }
             })
-            .fail(function () {
-                console.log("error");
+            .fail(function (data) {
+                if (data.message) {
+                    alert(data.message);
+                } else {
+                    data = JSON.parse(data);
+                    alert(data.message);
+                }
             })
             .always(function () {
                 $('.dynamicServiceTable').filterTable({ // apply filterTable to all tables on this page
