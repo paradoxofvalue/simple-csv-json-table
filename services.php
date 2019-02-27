@@ -151,7 +151,7 @@
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                        getData();
+                        updateData();
                         alert(response.message);
                     },
                     error: function (response) {
@@ -163,7 +163,7 @@
                 alert('Используйте пожалуйста, корректный файл.')
             }
         });
-        getData(()=>{
+        updateData(()=>{
             console.log('Initialized!');
         });        
     })
@@ -172,7 +172,7 @@
         $('.insertHere').html('');
     }
 
-    function getData(callback) {
+    function updateData(callback) {
         clearTable();
         $.get("data.json", function(data) {
             var tableDataArray = JSON.parse(data);
@@ -199,7 +199,7 @@
                 label: ' ',
                 placeholder: 'Фильтр таблицы: введите название услуги'
             });
-            callback ? callback() : setTimeout(function(){window.location.href = 'https://stuff.ipartner-smm.com.ua/apple-club-remont/services.php#table'}, 200);
+            callback ? callback() : setTimeout(function(){window.location.href = 'https://stuff.ipartner-smm.com.ua/apple-club-remont/services#table'}, 1000);
         })
     }  
 </script>
