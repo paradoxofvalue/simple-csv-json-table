@@ -1,6 +1,6 @@
 <style>
     .filter-table {
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
     }
     .filter-table .quick {
@@ -9,8 +9,12 @@
         padding: 5px 0;
         font-size: 1em;
         text-decoration: none;
-        text-transform: uppercase;
         font-family: 'Roboto', Arial, sans-serif;
+    }
+    .filter-table .quick:before {
+        content: '*';
+        display: inline-block;
+        margin-right: 2px;
     }
 
     .fitler-table .quick:hover {
@@ -36,7 +40,7 @@
         color: #84a820;
         background-color: rgb(244, 252, 221);
         border-radius: 30px;
-        text-align: center;
+        text-align: left;
         font-size: 1.4em;
         margin-bottom: 15px;
     }
@@ -81,7 +85,7 @@
         font-size: 18px;
         color: black;
         font-weight: bold;
-        line-height: 28px;
+        line-height: 1.2;
         text-align: center;
         padding: 20px 0;       
         font-family: 'Roboto', Arial, sans-serif;
@@ -103,9 +107,9 @@
     }
 
     .dynamicServiceTable td {
-        padding: 20px;
+        padding: 15px 20px;
         font-size: 18px;
-        line-height: 28px;
+        line-height: 1.2;
         color: #1c1c1c;
         font-family: 'Roboto', Arial, sans-serif;
         text-align: center;
@@ -116,6 +120,10 @@
         margin: 0 auto;
     }
 
+    .t585__header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
 </style>
 <div class="dynamicServiceTable__wrapper">
     <table class="table dynamicServiceTable ">
@@ -158,16 +166,11 @@
                         $(insertHtml).appendTo(tbody);
                     })
                 } else {
-                    alert(data.message);
+                    console.log("error");
                 }
             })
-            .fail(function (data) {
-                if (data.message) {
-                    alert(data.message);
-                } else {
-                    data = JSON.parse(data);
-                    alert(data.message);
-                }
+            .fail(function () {
+                console.log("error");
             })
             .always(function () {
                 $('.dynamicServiceTable').filterTable({ // apply filterTable to all tables on this page
