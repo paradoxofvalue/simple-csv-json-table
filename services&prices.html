@@ -1,131 +1,228 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
-        .filter-table {
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        .filter-table .quick {
-            color: #84a820 !important;
-            margin-left: 1em;
-            padding: 5px 0;
-            font-size: 1em;
-            text-decoration: none;
-            font-family: 'Roboto', Arial, sans-serif;
-        }
-        .filter-table .quick:before {
-            content: '*';
-            display: inline-block;
-            margin-right: 2px;
-        }
-    
-        .fitler-table .quick:hover {
-            text-decoration: underline;
-        }
-    
-        td.alt {
-            background-color: #ffc;
-            background-color: rgba(255, 255, 0, 0.2);
-        }
-    
-        .filter-table input[type="search"] {
-            margin: 0;
-            font-family: 'Roboto', Arial, sans-serif;
-            padding: 0 20px;
-            font-size: 16px;
-            line-height: 1.33;
-            width: 100%;
-            border: 0 none;
-            box-sizing: border-box;
-            outline: none;
-            height: 56px;
-            color: #84a820;
-            background-color: rgb(244, 252, 221);
-            border-radius: 30px;
-            text-align: left;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-        }
-    
-        .dynamicServiceTable {
-            width: 100%;
-            border-spacing: 0;
-            border-collapse: collapse;
-            height: 60vh;
-            table-layout: fixed;
-        }
-        
-        .dynamicServiceTable thead,
-        .dynamicServiceTable tbody,
-        .dynamicServiceTable td,
-        .dynamicServiceTable tr,
-        .dynamicServiceTable th {
-            display: inline-block;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        .dynamicServiceTable thead {
-            width: calc(100% - 15px);
-        }
-        .dynamicServiceTable tr {
-            
-        }
-    
-        .dynamicServiceTable tbody {
-            height: inherit;
-            overflow-y: scroll;
-            border-top: 1px solid black;
-    
-        }
-        .dynamicServiceTable tbody tr {
-            background: rgba(235, 255, 171, 0.5);
-            border-bottom: 1px solid rgb(132, 168, 32);
-        }
-        .dynamicServiceTable th {
-            font-size: 18px;
-            color: black;
-            font-weight: bold;
-            line-height: 1.2;
-            text-align: center;
-            padding: 20px 0;       
-            font-family: 'Roboto', Arial, sans-serif;
-            float: left;
-            box-sizing: border-box;
-            text-transform: uppercase;
-        }
-    
-        .dynamicServiceTable th:nth-child(1),
-        .dynamicServiceTable tr td:nth-child(1) {
-            width: 50%;
-        }
-    
-        .dynamicServiceTable th:nth-child(2),
-        .dynamicServiceTable th:nth-child(3),
-        .dynamicServiceTable tr td:nth-child(2),
-        .dynamicServiceTable tr td:nth-child(3) {
-            width: 25%;
-        }
-    
-        .dynamicServiceTable td {
-            padding: 15px 20px;
-            font-size: 18px;
-            line-height: 1.2;
-            color: #1c1c1c;
-            font-family: 'Roboto', Arial, sans-serif;
-            text-align: center;
-        }
-    
-        .dynamicServiceTable__wrapper {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-    
-        .t585__header {
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-    </style>
+    .filter-table {
+        text-align: left;
+        margin-bottom: 30px
+    }
+
+    .filter-table .quick {
+        color: #84a820 !important;
+        margin-left: 1em;
+        padding: 5px 0;
+        font-size: 1em;
+        text-decoration: none;
+        font-family: Roboto, Arial, sans-serif
+    }
+
+    .filter-table .quick:before {
+        content: '*';
+        display: inline-block;
+        margin-right: 2px
+    }
+
+    .fitler-table .quick:hover {
+        text-decoration: underline
+    }
+
+    td.alt {
+        background-color: #ffc;
+        background-color: rgba(255, 255, 0, .2)
+    }
+
+    .filter-table input[type=search] {
+        margin: 0 0 15px;
+        font-family: Roboto, Arial, sans-serif;
+        padding: 0 20px;
+        line-height: 1.33;
+        width: 100%;
+        border: 0;
+        box-sizing: border-box;
+        outline: 0;
+        height: 56px;
+        color: #84a820;
+        background-color: #f4fcdd;
+        border-radius: 30px;
+        text-align: left;
+        font-size: 1.4em
+    }
+
+    .dynamicServiceTable td,
+    .dynamicServiceTable th {
+        line-height: 1.2;
+        font-family: Roboto, Arial, sans-serif
+    }
+
+    .dynamicServiceTable {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        height: 60vh;
+        table-layout: fixed
+    }
+
+    .dynamicServiceTable tbody,
+    .dynamicServiceTable td,
+    .dynamicServiceTable th,
+    .dynamicServiceTable thead,
+    .dynamicServiceTable tr {
+        display: inline-block;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box
+    }
+
+    .dynamicServiceTable thead {
+        width: calc(100% - 15px)
+    }
+
+    .dynamicServiceTable tbody {
+        height: inherit;
+        overflow-y: scroll;
+        border-top: 1px solid #000
+    }
+
+    .dynamicServiceTable tbody tr {
+        background: rgba(235, 255, 171, .5);
+        border-bottom: 1px solid #84a820
+    }
+
+    .dynamicServiceTable th {
+        font-size: 18px;
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+        padding: 20px 0;
+        float: left;
+        box-sizing: border-box;
+        text-transform: uppercase
+    }
+
+    .dynamicServiceTable th:nth-child(1),
+    .dynamicServiceTable tr td:nth-child(1) {
+        width: 50%
+    }
+
+    .dynamicServiceTable th:nth-child(2),
+    .dynamicServiceTable th:nth-child(3),
+    .dynamicServiceTable tr td:nth-child(3) {
+        width: 25%
+    }
+
+    .dynamicServiceTable tr td:nth-child(2) {
+        width: 24%
+    }
+
+    .dynamicServiceTable td {
+        padding: 15px 20px;
+        font-size: 18px;
+        color: #1c1c1c;
+        text-align: center
+    }
+
+    .dynamicServiceTable__wrapper {
+        max-width: 960px;
+        margin: 0 auto
+    }
+
+    .t585__header {
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+
+    .ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
+        border: none
+    }
+
+    .ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+        border: none;
+        display: flex;
+        justify-content: center
+    }
+
+    .ui-widget-header {
+        background: 0 0;
+        text-align: center
+    }
+
+    .ui-tabs .ui-tabs-nav li,
+    .ui-tabs .ui-tabs-nav li.ui-tabs-active {
+        border: none;
+        background: 0 0;
+        width: 150px;
+        text-align: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .2)
+    }
+
+    .ui-tabs .ui-tabs-nav li.ui-tabs-active {
+        border-bottom: 1px solid rgba(0, 0, 0, 1)
+    }
+
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        float: none;
+        color: rgba(0, 0, 0, .6) !important;
+        width: 100%;
+        display: block;
+        padding: 10px 0
+    }
+
+    .ui-state-active a,
+    .ui-state-active a:link,
+    .ui-state-active a:visited {
+        color: rgba(0, 0, 0, 1) !important;
+        font-weight: 700
+    }
+
+    .ui-state-default,
+    .ui-widget-content .ui-state-default {
+        border: none;
+        background: 0 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 1);
+        border-radius: 0;
+        font-size: 18px;
+        text-align: center;
+        max-width: 75%;
+        margin: 0 auto;
+    }
+
+    .ui-state-default:first-child,
+    .ui-widget-content .ui-state-default:first-child {
+        border-top: 0
+    }
+
+    .ui-icon,
+    .ui-widget-content .ui-icon {
+        background-image: url(https://code.jquery.com/ui/1.12.1/themes/base/images/ui-icons_444444_256x240.png);
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        transform: scale(1.5);
+        transition: .3s ease
+    }
+
+    .ui-button.ui-state-active:hover,
+    .ui-button:active,
+    .ui-state-active,
+    .ui-widget-content .ui-state-active,
+    .ui-widget-header .ui-state-active,
+    a.ui-button:active {
+        color: rgba(0, 0, 0, 1)
+    }
+
+    .ui-widget-content {
+        border: none;
+        background: transparent;
+    }
+
+    .ui-state-active .ui-icon {
+        transform: scale(1.5) rotate(45deg)
+    }
+</style>
 <div id="tabs">
     <ul>
         <li><a href="#tabs-1">iPhone</a></li>
@@ -134,159 +231,20 @@
     </ul>
     <div id="tabs-1">
         <div id="accordion-1">
-            <h3>Section 1</h3>
-            <div>
-                <p>
-                    test
-                </p>
-            </div>
-            <h3>Section 2</h3>
-            <div>
-                <p>
-                    drerit, dolor at aliquet laoreet, mauris turpis porttitor
-                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                    suscipit faucibus urna.
-                </p>
-            </div>
-            <h3>Section 3</h3>
-            <div>
-                <p>
-                    esque semper. Sed ac felis. Sed commodo, magna quis
-                    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-            </div>
-            <h3>Section 4</h3>
-            <div>
-                <p>
-                    uctus et ultrices posuere cubilia Curae; Aenean lacinia
-                    mauris vel est.
-                </p>
-                <p>
-                    Sse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos.
-                </p>
-            </div>
         </div>
     </div>
     <div id="tabs-2">
         <div id="accordion-2">
-            <h3>Section 11</h3>
-            <div>
-                <div class="dynamicServiceTable__wrapper">
-                    <table class="table dynamicServiceTable ">
-                        <thead>
-                            <tr>
-                                <th scope="col">Услуги</th>
-                                <th scope="col">Гарантия</th>
-                                <th scope="col">Стоимость, грн</th>
-                            </tr>
-                        </thead>
-                        <tbody class="insertDataHere">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <h3>Section 21</h3>
-            <div>
-                <p>
-                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                    suscipit faucibus urna.
-                </p>
-            </div>
-            <h3>Section 31</h3>
-            <div>
-                <p>
-                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-            </div>
-            <h3>Section 14</h3>
-            <div>
-                <p>
-                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                    mauris vel est.
-                </p>
-                <p>
-                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos.
-                </p>
-            </div>
         </div>
     </div>
     <div id="tabs-3">
         <div id="accordion-3">
-            <h3>Section 21</h3>
-            <div>
-                <p>
-                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                </p>
-            </div>
-            <h3>Section 22</h3>
-            <div>
-                <p>
-                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                    suscipit faucibus urna.
-                </p>
-            </div>
-            <h3>Section 23</h3>
-            <div>
-                <p>
-                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-            </div>
-            <h3>Section 24</h3>
-            <div>
-                <p>
-                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                    mauris vel est.
-                </p>
-                <p>
-                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos.
-                </p>
-            </div>
         </div>
     </div>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
 <script src="https://rawgit.com/bgrins/bindWithDelay/master/bindWithDelay.js"></script>
 <script src="https://rawgit.com/sunnywalker/jQuery.FilterTable/master/jquery.filtertable.min.js"></script>
@@ -294,47 +252,115 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-    $(document).ready(function() {
+    function sortServices(data) {
+        var newTables = {};
+        data.forEach(function (item) {
+            var inserted = 0;
+            if (Object.keys(newTables).length) {
+                Object.keys(newTables).forEach(function (key) {
+                    if (key == item.Model) {
+                        newTables[key].push(item);
+                        inserted = 1;
+                    }
+                })
+            } else {
+                newTables[item.Model] = [];
+                newTables[item.Model].push(item);
+                inserted = 1;
+            }
+            if (!inserted) {
+                newTables[item.Model] = [];
+                newTables[item.Model].push(item);
+                inserted = 1;
+            }
+        });
+        return newTables;
+    }
+
+    function buildNewTables(data) {
+        Object.keys(data).forEach(function (key) {
+            var array = data[key];
+
+            var isCreated = document.querySelector('.insertDataHere[data-model="' + key + '"]'),
+                iPhonesContainer = document.querySelector('#tabs-1 div'),
+                iPadsContainer = document.querySelector('#tabs-2 div'),
+                macsContainer = document.querySelector('#tabs-3 div'),
+                modelType = '';
+
+            if (key.indexOf('hone')) {
+                modelType = iPhonesContainer;
+            } else if (key.indexOf('pad')) {
+                modelType = iPadsContainer;
+            } else if (key.indexOf('mac')) {
+                modelType = macsContainer;
+            }
+
+            if (!isCreated) {
+                var newHtml =
+                    `
+                    <h3>Ремонт ${key}</h3>
+                    <div>
+                        <div class="dynamicServiceTable__wrapper">
+                            <table class="table dynamicServiceTable ">
+                                <thead>
+                                    <tr data-model="${key}">
+                                        <th scope="col">Услуги</th>
+                                        <th scope="col">Гарантия</th>
+                                        <th scope="col">Стоимость, грн</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="insertDataHere" data-model="${key}">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+                $(modelType).append(newHtml);
+            }
+
+            array.forEach(function (object) {
+                var tableBody = document.querySelector('.insertDataHere[data-model="' + key + '"]');
+                var dataHtml =
+                    `
+                    <tr>
+                        <td scope="row">${object.Service}</td>
+                        <td>${object.Warranty}</td>
+                        <td>${object.Price}</td>
+                    </tr>
+                `;
+                $(tableBody).append(dataHtml);
+            })
+        });
+    }
+
+    $(document).ready(function () {
         $.getJSON('https://stuff.ipartner-smm.com.ua/apple-club-remont/getJSON.php?modelName=all')
             .done(function (data) {
                 if (data.status) {
-                    var tableDataArray = data.response;
-                    var tbody = $('.insertDataHere');
-                    tableDataArray.forEach(function (dataItem) {
-                        var insertHtml = '<tr>';
-                        insertHtml += '<td scope="row" data-model="'+dataItem.Model+'">';
-                        insertHtml += dataItem.Service;
-                        insertHtml += '</td>';
-                        insertHtml += '<td>';
-                        insertHtml += dataItem.Warranty ? dataItem.Warranty + ' мес.' : '-';
-                        insertHtml += '</td>';
-                        insertHtml += '<td>';
-                        insertHtml += dataItem.Price ? dataItem.Price : 'бесплатно';
-                        insertHtml += '</td>';
-                        insertHtml += '</tr>';
-                        $(insertHtml).appendTo(tbody);
-                    })
+                    var newTables = sortServices(data.response);
+                    buildNewTables(newTables);
+                    var accordionOptions = {
+                        active: false,
+                        collapsible: true,
+                        icons: {
+                            "header": "ui-icon-plus",
+                            "activeHeader": "ui-icon-plus",
+                        }
+                    }
+                    $("#accordion-1").accordion(accordionOptions);
+                    $("#accordion-2").accordion(accordionOptions);
+                    $("#accordion-3").accordion(accordionOptions);
+                    $("#tabs").tabs();
                 } else {
                     console.log("error");
                 }
             })
             .fail(function () {
                 console.log("error");
-            })
-            .always(function () {
-                // $('.dynamicServiceTable').filterTable({ // apply filterTable to all tables on this page
-                //     quickList: ['Ремонт', 'Аккумулятор', 'Дигностика', 'Apple'], // add some shortcut searches
-                //     //quickListClear: '&times; Очистить' // add the clear filter item
-                //     label: ' ',
-                //     placeholder: 'Фильтр таблицы: введите название услуги'
-                // });
             });
     })
     $(function () {
-        $("#accordion-1").accordion();
-        $("#accordion-2").accordion();
-        $("#accordion-3").accordion();
-        $("#tabs").tabs();
-        
+
+
     });
 </script>
