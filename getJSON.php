@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header("HTTP/1.1 200 OK");
 
-$modelName = $_REQUEST['modelName'];
+$modelName = urldecode($_REQUEST['modelName']);
 $string = file_get_contents("data.json");
 $json_a = json_decode(json_decode($string, true));
 
