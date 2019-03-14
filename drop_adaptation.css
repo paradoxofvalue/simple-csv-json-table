@@ -1,0 +1,11 @@
+@media screen and (min-width: 1200px) {
+    .t390 .t-popup__container {
+        top: 485px;
+    }
+}
+@media screen and (min-width: 640px) {
+    .t390 .t-popup__container {
+        top: 663px;
+    }
+}
+
